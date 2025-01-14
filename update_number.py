@@ -56,11 +56,11 @@ def generate_random_commit_message():
 def git_commit():
     # Stage the changes
     subprocess.run(["git", "add", "number.txt"])
-    # Create commit with current date
+    # Create commit with date of January 1st, 2025
     if "FANCY_JOB_USE_LLM" in os.environ:
         commit_message = generate_random_commit_message()
     else:
-        date = datetime.now().strftime("%Y-%m-%d")
+        date = datetime(2025, 1, 1).strftime("%Y-%m-%d")
         commit_message = f"Update number: {date}"
     subprocess.run(["git", "commit", "-m", commit_message])
 
