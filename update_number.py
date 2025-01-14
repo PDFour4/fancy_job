@@ -60,7 +60,7 @@ def git_commit():
     if "FANCY_JOB_USE_LLM" in os.environ:
         commit_message = generate_random_commit_message()
     else:
-        date = datetime(2025, 1, 1).strftime("%Y-%m-%d")
+        date = datetime.now().strftime("%Y-%m-%d")
         commit_message = f"Update number: {date}"
     subprocess.run(["git", "commit", "-m", commit_message])
 
